@@ -1,10 +1,19 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { RandomFox } from '../components/RandomFox'
+import { useState } from 'react';
 
 const random = () => Math.floor(Math.random()*123) + 1;
 
 const Home: NextPage = () => {
+
+  const [images, setImages] = useState<Array<string>>([
+    `https://randomfox.ca/images/${random()}.jpg`,
+    `https://randomfox.ca/images/${random()}.jpg`,
+    `https://randomfox.ca/images/${random()}.jpg`,
+    `https://randomfox.ca/images/${random()}.jpg`,
+  ])
+
   return (
     <div>
       <Head>
@@ -17,7 +26,12 @@ const Home: NextPage = () => {
         <h1 className="text-3xl font-bold underline">
           Hello Platzi
         </h1>
-        <RandomFox image={`https://randomfox.ca/images/${random()}.jpg`}/>
+        {images.map((image, index) => (
+          <div key={index} className='p-4'>
+            <RandomFox image={image} />
+          </div>
+        ))}
+        
       </main>
     </div>
   )
