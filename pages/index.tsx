@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { RandomFox } from '../styles/components/RandomFox'
+import { RandomFox } from '../components/RandomFox'
 
 const Home: NextPage = () => {
   return (
