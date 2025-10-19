@@ -32,7 +32,11 @@ const Home: NextPage = () => {
         <button onClick={addNewFox}>Add new fox</button>
         {images.map(({id, url}) => (
           <div key={id} className='p-4'>
-            <LazyImage src={url} onClick={()=> {console.log('Hola')}} />
+            <LazyImage 
+              src={url} 
+              onClick={()=> {console.log('Hola')}} 
+              onLazyLoad={(img)=>{console.log('Imagen cargada')}}
+              />
           </div>
         ))}
         
